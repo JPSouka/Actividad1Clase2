@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+int main() {
+  string fabricante, modelo;
+  int año;
+  bool continuar;
+
+  while(true){ //ciclo infinito 
+
+  cout << "Ingresa fabricante de avión:" << endl;
+  cin >> fabricante;
+
+  cout << "Ingresa modelo de avión:" << endl;
+  cin >> modelo; 
+
+  cout << "Ingresa año de avión:" << endl;
+  cin >> año;
+
+  cout << "El avión registrado fue: " << fabricante << ", es el modelo " << modelo
+  <<" y su año de serialización fue en el " << año << endl;
+
+  cout << "¿Desea registrar otro avión? 1 para si y 0 para no" << endl;
+  cin >> continuar;
+
+  if (continuar != 1) break; //condicion para detener el ciclo
+  }
+}
