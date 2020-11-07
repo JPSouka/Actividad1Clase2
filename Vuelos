@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+int main(){
+  ifstream archivo;
+  archivo.open("vuelos.txt"); //Colocar un archivo de texto con la lista de los países con sus abrebiaciones junto con el programa
+  string linea, trafico;
+  int cantVuelos, i;
+  string vuelos[16];
+  ofstream archivo_guardar;
+  archivo_guardar.open("vuelos_guardados.txt"); //Crea un archivo de texto con los datos finales guardados
+  while(getline(archivo,linea)){
+    cantVuelos = rand()%500;
+    if (cantVuelos > 200){
+      trafico = "Alto";
+    }
+    else{
+      trafico = "Bajo";
+    }
+    cout << linea << "  " << cantVuelos << " " << trafico << endl;
+    archivo_guardar << linea << " " << cantVuelos << " " << trafico << endl;
+    vuelos[i] = vuelos[i] + linea + " "+ to_string(cantVuelos) + " " + trafico;
+    i++;
+  }
+  for(string vuelo : vuelos){
+    cout << vuelo << endl;
+  }
+  archivo.close();
+  archivo_guardar.close();
+}
