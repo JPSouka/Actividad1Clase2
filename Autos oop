@@ -1,0 +1,163 @@
+using namespace std;
+
+//declara la clase auto
+class Auto{
+
+private: //se hacen los atributos privados
+
+  //declarar atributos
+  string marca;
+  string modelo;
+  int año;
+  string color;
+  int numPasajeros;
+  int kilometros;
+
+public: //El constructor de hace público
+//Creacion de constructor de la clase auto
+Auto(string Marca, string Modelo, int Año, string Color, int NumPasajeros, int Kilometros){
+
+  marca = Marca;
+  modelo = Modelo;
+  año = Año;
+  color = Color;
+  numPasajeros = NumPasajeros;
+  kilometros = Kilometros;
+
+}//Constructor no regresa valor
+
+//metodos de la clase
+void imprimirInfoAuto(){
+
+  cout << "Marca: " << marca << endl;
+  cout << "Modelo: " << modelo << endl;
+  cout << "Año: " << año << endl;
+  cout << "Color: " << color << endl;
+  cout << "Num. Pasajeros: " << numPasajeros << endl;
+  cout << "Kilometros: " << kilometros << endl;  
+
+}
+
+void setMarca(){
+  cout << "Ingresa marca" << endl;
+  cin >> marca;
+}
+
+string getMarca(){
+  return marca;
+}
+
+void setModelo(){
+  cout << "Ingrese modelo: " << endl;
+  cin >> modelo;
+}
+
+string getModelo(){
+  return modelo;
+}
+
+void setAño(){
+  cout << "Ingrese año: " << endl;
+  cin >> año;
+}
+
+int getAño(){
+  return año;
+}
+
+void setColor(){
+  cout << "Ingrese color: " << endl;
+  cin >> marca;
+}
+
+string getColor(){
+  return color;
+}
+
+void setNumPasajeros(){
+  cout << "Ingrese el numero de pasajeros: " << endl;
+  cin >> numPasajeros;
+}
+
+int getNumPasajeros(){
+  return numPasajeros;
+}
+
+void setKilometros(){
+  cout << "Ingresa kilometros disponibles: " << endl;
+  cin >> kilometros;
+}
+
+int getKilometros(){
+  return kilometros;
+}
+
+};//final de cada clase un ;
+
+int main() { 
+
+  Auto auto1("Tesla","Model 3", 2020, "Gris", 5, 1000);
+  Auto auto2("Volvo","S60", 2020, "Plata", 5, 1000);
+
+  auto1.setMarca();
+  cout << auto1.getMarca() << endl;
+  auto1.setModelo();
+  cout << auto1.getModelo() << endl; 
+  auto1.setAño();
+  cout << auto1.getAño() << endl;
+  auto1.setColor();
+  cout << auto1.getColor() << endl;
+  auto1.setNumPasajeros();
+  cout << auto1.getNumPasajeros() << endl;
+  auto1.setKilometros();
+  cout << auto1.getKilometros() << endl;
+  auto1.imprimirInfoAuto();
+  auto2.setMarca();
+  cout << auto2.getMarca() << endl;
+  auto2.setModelo();
+  cout << auto2.getModelo() << endl; 
+  auto2.setAño();
+  cout << auto2.getAño() << endl;
+  auto2.setColor();
+  cout << auto2.getColor() << endl;
+  auto2.setNumPasajeros();
+  cout << auto2.getNumPasajeros() << endl;
+  auto2.setKilometros();
+  cout << auto2.getKilometros() << endl;
+  auto2.imprimirInfoAuto();
+
+
+/*
+  Auto auto1;
+  auto1.marca = "Tesla";
+  auto1.modelo = "Model 3";
+  auto1.año = 2020;
+  auto1.color = "Gris";
+  auto1.numPasajeros = 5;
+  auto1.kilometros = 1000;
+
+  Auto auto2;
+  auto2.marca = "Volvo";
+  auto2.modelo = "S60";
+  auto2.año = 2020;
+  auto2.color = "Plata";
+  auto2.numPasajeros = 5;
+  auto2.kilometros = 1000;
+
+  cout << "Marca: " << auto1.marca << endl;
+  cout << "Modelo: " << auto1.modelo << endl;
+  cout << "Año: " << auto1.año << endl;
+  cout << "Color: " << auto1.color << endl;
+  cout << "Num. Pasajeros: " << auto1.numPasajeros << endl;
+  cout << "Kilometros: " << auto1.kilometros << endl;  
+
+  cout << "Marca: " << auto2.marca << endl;
+  cout << "Modelo: " << auto2.modelo << endl;
+  cout << "Año: " << auto2.año << endl;
+  cout << "Color: " << auto2.color << endl;
+  cout << "Num. Pasajeros: " << auto2.numPasajeros << endl;
+  cout << "Kilometros: " << auto2.kilometros << endl;  
+  */
+
+  return 0;
+}
