@@ -1,0 +1,202 @@
+//main.cp (PRIMER ARCHIVO .CPP)
+#include <iostream>
+#include <string>
+#include "Auto.h"
+
+using namespace std;
+
+int main() { 
+  float pasajeros = 0.0;
+  float distancia = 0.0;
+  Auto auto1("Tesla","Model 3", 2020, "Gris", 5, 1000, 100);
+  auto1.imprimirInfoAuto();
+  cout << "Ingresa cantidad de pasajeros" << endl;
+  cin >> pasajeros;
+  cout << "Ingresa distancia a recorrer" << endl;
+  cin >> distancia;
+  //auto1.recargarAuto();
+  auto1.avanzaAuto(pasajeros, distancia);
+  auto1.imprimirInfoAuto();
+
+  return 0;
+  
+}
+
+//Auto.cpp (SEGUNDO ARCHIVO .CPP)
+#include "Auto.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+//Indicamos el nombre de la clase a la que pertenece el constructor de la clase auto
+Auto::Auto(string Marca, string Modelo, int Año, string Color, int NumPasajeros, int Kilometros, float DistanciaPosible){
+
+  marca = Marca;
+  modelo = Modelo;
+  año = Año;
+  color = Color;
+  numPasajeros = NumPasajeros;
+  kilometros = Kilometros;
+  distanciaPosible = DistanciaPosible;
+
+}//Constructor no regresa valor
+
+//metodos de la clase
+void Auto::imprimirInfoAuto(){
+
+  cout << "Marca: " << marca << endl;
+  cout << "Modelo: " << modelo << endl;
+  cout << "Año: " << año << endl;
+  cout << "Color: " << color << endl;
+  cout << "Num. Pasajeros: " << numPasajeros << endl;
+  cout << "Kilometros: " << kilometros << endl;  
+  cout << "Distancia posible: " << distanciaPosible << " kilometros" << endl; 
+
+}
+
+void Auto::setMarca(string Marca){
+  marca=Marca;
+}
+string Auto::getMarca(){
+  return marca;
+}
+
+void Auto::setModelo(string Modelo){
+  modelo=Modelo;
+}
+string Auto::getModelo(){
+  return modelo;
+}
+
+void Auto::setAño(int Año){
+  año=Año;
+}
+int Auto::getAño(){
+  return año;
+}
+
+void Auto::setColor(string Color){
+  color=Color;
+}
+string Auto::getColor(){
+  return color;
+}
+
+void Auto::setNumPasajeros(int NumPasajeros){
+  numPasajeros=NumPasajeros;
+}
+int Auto::getNumPasajeros(){
+  return numPasajeros;
+}
+
+void Auto::setKilometros(int Kilometros){
+  kilometros=Kilometros;
+}
+int Auto::getKilometros(){
+  return kilometros;
+}
+
+void Auto::setDistanciaPosible(float DistanciaPosible){
+  distanciaPosible=DistanciaPosible;
+}
+float Auto::getDistanciaPosible(){
+  return distanciaPosible;
+}
+
+void Auto::recargarAuto(){
+  setDistanciaPosible(500);
+  cout << "Recargado" << endl;
+}
+
+bool Auto::requiereMantenimiento(){
+
+  if (getKilometros()>10000){
+    //cout << "Requiere mantenimiento" << endl;
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
+void Auto::avanzaAuto(float pasajeros, float distancia){
+  float nuevaDistancia;
+  if(pasajeros > getNumPasajeros() || pasajeros <= 0){
+    cout << "Ingrese un número válido de pasajeros" << endl;
+  }
+  else if (pasajeros >= getNumPasajeros() / 2){
+    nuevaDistancia=getDistanciaPosible() * 0.9;
+
+  }
+  else if (pasajeros < getNumPasajeros() / 2){
+    nuevaDistancia=getDistanciaPosible() * 0.95;
+  }
+  if (distancia > nuevaDistancia || requiereMantenimiento() == 1 ){
+    if (requiereMantenimiento()==1){
+      cout << "Requiere mantenimiento" << endl;
+    }
+    else{
+      cout << "No es posible recorrer esa distancia" << endl;
+    }
+  }
+  else{
+    cout << "Viaje confirmado" << endl;
+    setKilometros(getKilometros() + distancia);
+    setDistanciaPosible(getDistanciaPosible()-distancia);
+  }
+}
+
+//Auto.h 
+//Archivo de declaracion de clase, atributos y métodos
+
+#include <string>
+using namespace std;
+
+class Auto{
+
+private: //se hacen los atributos privados
+
+  //declarar atributos
+  string marca;
+  string modelo;
+  int año;
+  string color;
+  int numPasajeros;
+  int kilometros;
+  float distanciaPosible;
+
+public: //El constructor de hace público
+//Creacion de constructor de la clase auto
+Auto(string Marca, string Modelo, int Año, string Color, int NumPasajeros, int Kilometros, float DistanciaPosible);
+
+//metodos de la clase
+void imprimirInfoAuto();
+
+void setMarca(string Marca);
+string getMarca();
+
+void setModelo(string Modelo);
+string getModelo();
+
+void setAño(int Año);
+int getAño();
+
+void setColor(string Color);
+string getColor();
+
+void setNumPasajeros(int NumPasajeros);
+int getNumPasajeros();
+
+void setKilometros(int Kilometros);
+int getKilometros();
+
+void setDistanciaPosible(float DistanciaPosible);
+float getDistanciaPosible();
+
+void recargarAuto();
+
+bool requiereMantenimiento();
+
+void avanzaAuto(float pasajero, float distancia);
+
+};//final de cada clase un ;
