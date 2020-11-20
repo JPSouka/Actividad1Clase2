@@ -1,0 +1,181 @@
+//main.cpp
+#include <iostream>
+
+using namespace std;
+
+int main(){
+  
+}
+
+/*int sumaValor(int valor){
+
+  valor = valor+10;
+
+  return valor;
+
+}
+
+int sumaPuntero(int *valor){
+
+  *valor = *valor+10;
+
+  return *valor;
+}
+
+int sumaReferencia(int &valor){
+
+  valor = valor + 10;
+
+  return valor;
+}
+
+int main() {
+
+  //punteros
+  int numero = 10; //variable con valor 10
+
+  int *puntero = &numero; //puntero que apunta a la direccion de memoria de numero
+
+  cout << numero << endl; //imprimir numero
+  cout << &numero << endl; //imprimir mi direccion de memoria de numero 
+
+  cout << puntero << endl; //imprimir puntero (direccion de memoria)
+
+  cout << *puntero << endl; //imprimir valor de memoria 
+
+  sumaValor(numero);
+
+  cout << "numero despues de funcion: " << numero << endl;
+
+  sumaPuntero(&numero);
+
+  cout << "numero despues de funcion puntero: " << numero << endl;
+
+  sumaReferencia(numero);
+
+  cout << "numero despues de funcion referencia: " << numero << endl;
+
+
+}*/
+
+//Empleado.cpp
+
+#include <iostream>
+#include <string>
+#include "Empleado.h"
+
+using namespace std;
+
+Empleado::Empleado(){
+
+  nomina = "Sin nomina";
+  nombre = "Sin nombre";
+  sueldo = 0;
+  categoria = ' ';
+
+}
+
+Empleado::~Empleado(){
+  cout << "Se destruyó el objeto\n";
+}
+
+string Empleado::getNomina(){
+  return nomina;
+}
+
+string Empleado::getNombre(){
+  return nombre;
+}
+
+float Empleado::getSueldo(){
+  return sueldo;
+}
+
+char Empleado::getCategoria(){
+  return categoria;
+}
+
+void Empleado::setNomina(string const& n){
+  nomina = n;
+}
+
+void Empleado::setNombre(string const& n){
+  nombre=n;
+}
+
+void Empleado::setSueldo(float const& s){
+  sueldo=s;
+}
+
+void Empleado::setCategoria(char const& c){
+  categoria=c;
+}
+
+//otros metodos
+void Empleado::pedirDatos(){
+  cout << "Ingresa nomnia" << endl;
+  cin >> nomina;
+  cout << "Ingresa nombre" << endl;
+  cin >> nombre;
+  cout << "Ingresa sueldo" << endl;
+  cin >> sueldo;
+  cout << "Ingresa categoria" << endl;
+  cin >> categoria;
+
+  categoria = tolower(categoria);
+
+  if(categoria == 'a'){
+    sueldo = 10000;
+  }
+  else if (categoria == 'b'){
+    sueldo = 20000;
+  }
+  else if (categoria == 'c'){
+    sueldo = 30000;
+  }
+}
+void Empleado::imprimirEmpleados(){
+  cout << "Nomina: " << nomina << endl;
+  cout << "Nombre: " << nombre << endl;
+  cout << "Sueldo: " << sueldo << endl;
+  cout << "Categoría: " << categoria << endl;
+}
+
+//Empleado.h
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Empleado{
+  private:
+  //atributos
+  string nomina;
+  string nombre;
+  float sueldo;
+  char categoria;
+
+  public:
+  //constructor
+  Empleado();
+
+  //destructor
+  ~Empleado();
+
+  //metodos getters
+  string getNomina();
+  string getNombre();
+  float getSueldo();
+  char getCategoria();
+
+  //metodos setters
+  void setNomina(string const&);
+  void setNombre(string const&);
+  void setSueldo(float const&);
+  void setCategoria(char const&);
+
+  //otros metodos
+  void pedirDatos();
+  void imprimirEmpleados();
+};
